@@ -9,8 +9,8 @@ package libs
 
 import (
 	"fmt"
-	"github.com/george518/PPGo_Job/common"
-	"github.com/george518/PPGo_Job/models"
+	"PPGo_Job/common"
+	"PPGo_Job/models"
 	"github.com/linxiaozhi/go-telnet"
 	"github.com/pkg/errors"
 	"golang.org/x/crypto/ssh"

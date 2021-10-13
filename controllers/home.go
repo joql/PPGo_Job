@@ -9,12 +9,12 @@ package controllers
 
 import (
 	"github.com/astaxie/beego"
-	"github.com/george518/PPGo_Job/jobs"
-	"github.com/george518/PPGo_Job/libs"
-	"github.com/george518/PPGo_Job/models"
+	"PPGo_Job/jobs"
+	"PPGo_Job/libs"
+	"PPGo_Job/models"
 	"runtime"
-	"sort"
-	"strconv"
+	//"sort"
+	//"strconv"
 	//"strconv"
 	"time"
 )
@@ -123,51 +123,51 @@ func (self *HomeController) Start() {
 	self.Data["jobs"] = jobList
 
 	//折线图
-	okRun := models.SumByDays(3, "0")
-	errRun := models.SumByDays(3, "-1")
-	expiredRun := models.SumByDays(3, "-2")
+	//okRun := models.SumByDays(3, "0")
+	//errRun := models.SumByDays(3, "-1")
+	//expiredRun := models.SumByDays(3, "-2")
 
 	days := []string{}
 	okNum := []int64{}
 	errNum := []int64{}
 	expiredNum := []int64{}
 
-	type kv struct {
-		Key   string
-		Value int64
-	}
-
-	//排序
-	var ss []kv
-	for k, v := range okRun {
-		i, _ := strconv.ParseInt(v.(string), 10, 64)
-		ss = append(ss, kv{k, i})
-	}
-
-	sort.Slice(ss, func(i, j int) bool {
-
-		return ss[i].Key < ss[j].Key
-	})
-
-	for _, v := range ss {
-
-		days = append(days, v.Key)
-		okNum = append(okNum, v.Value)
-
-		if _, ok := errRun[v.Key]; ok {
-			i, _ := strconv.ParseInt(errRun[v.Key].(string), 10, 64)
-			errNum = append(errNum, i)
-		} else {
-			errNum = append(errNum, 0)
-		}
-
-		if _, ok := expiredRun[v.Key]; ok {
-			i, _ := strconv.ParseInt(expiredRun[v.Key].(string), 10, 64)
-			expiredNum = append(expiredNum, i)
-		} else {
-			expiredNum = append(expiredNum, 0)
-		}
-	}
+	//type kv struct {
+	//	Key   string
+	//	Value int64
+	//}
+	//
+	////排序
+	//var ss []kv
+	//for k, v := range okRun {
+	//	i, _ := strconv.ParseInt(v.(string), 10, 64)
+	//	ss = append(ss, kv{k, i})
+	//}
+	//
+	//sort.Slice(ss, func(i, j int) bool {
+	//
+	//	return ss[i].Key < ss[j].Key
+	//})
+	//
+	//for _, v := range ss {
+	//
+	//	days = append(days, v.Key)
+	//	okNum = append(okNum, v.Value)
+	//
+	//	if _, ok := errRun[v.Key]; ok {
+	//		i, _ := strconv.ParseInt(errRun[v.Key].(string), 10, 64)
+	//		errNum = append(errNum, i)
+	//	} else {
+	//		errNum = append(errNum, 0)
+	//	}
+	//
+	//	if _, ok := expiredRun[v.Key]; ok {
+	//		i, _ := strconv.ParseInt(expiredRun[v.Key].(string), 10, 64)
+	//		expiredNum = append(expiredNum, i)
+	//	} else {
+	//		expiredNum = append(expiredNum, 0)
+	//	}
+	//}
 
 	self.Data["days"] = days
 	self.Data["okNum"] = okNum

@@ -9,8 +9,8 @@ package controllers
 
 import (
 	"github.com/astaxie/beego"
-	"github.com/george518/PPGo_Job/libs"
-	"github.com/george518/PPGo_Job/models"
+	"PPGo_Job/libs"
+	"PPGo_Job/models"
 	"strconv"
 	"strings"
 )

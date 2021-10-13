@@ -274,6 +274,7 @@
                                     <thead>
                                     <tr>
                                         <th>序号</th>
+                                        <th>服务器</th>
                                         <th>任务名称</th>
                                         <th>开始时间</th>
                                         <th>执行结果</th>
@@ -283,6 +284,7 @@
                                     {{range $k, $v := .errLogs}}
                                         <tr>
                                             <td>{{$k}}</td>
+                                            <td>{{$v.server_name}}</td>
                                             <td><a href="javascript:;" onclick="logDetail({{$v.id}});" class="news-item-title">
                                                     {{$v.task_name}} # {{$v.id}}
                                                 </a></td>

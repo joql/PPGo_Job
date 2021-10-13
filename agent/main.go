@@ -2,7 +2,7 @@ package main
 
 import (
 	"flag"
-	"github.com/george518/PPGo_Job/agent/server"
+	"PPGo_Job/agent/server"
 	"log"
 	"runtime"
 )

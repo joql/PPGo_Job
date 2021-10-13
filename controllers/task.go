@@ -9,15 +9,15 @@ package controllers
 
 import (
 	"fmt"
-	"github.com/george518/PPGo_Job/libs"
+	"PPGo_Job/libs"
 	"strconv"
 	"strings"
 	"time"
 
 	"github.com/astaxie/beego"
-	"github.com/george518/PPGo_Job/crons"
-	"github.com/george518/PPGo_Job/jobs"
-	"github.com/george518/PPGo_Job/models"
+	"PPGo_Job/crons"
+	"PPGo_Job/jobs"
+	"PPGo_Job/models"
 )
 
 type TaskController struct {

@@ -12,8 +12,8 @@ import (
 	"errors"
 	"fmt"
 	"github.com/astaxie/beego/logs"
-	"github.com/george518/PPGo_Job/libs"
-	"github.com/george518/PPGo_Job/models"
+	"PPGo_Job/libs"
+	"PPGo_Job/models"
 	"io/ioutil"
 	"net"
 	"net/rpc"
@@ -29,7 +29,7 @@ import (
 
 	"encoding/json"
 	"github.com/astaxie/beego"
-	"github.com/george518/PPGo_Job/notify"
+	"PPGo_Job/notify"
 	"github.com/linxiaozhi/go-telnet"
 	"golang.org/x/crypto/ssh"
 )

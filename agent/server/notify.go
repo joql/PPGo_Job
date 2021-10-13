@@ -10,7 +10,7 @@ package server
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/george518/PPGo_Job/libs"
+	"PPGo_Job/libs"
 	"strconv"
 )
 
