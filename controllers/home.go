@@ -15,7 +15,6 @@ import (
 	"runtime"
 	"sort"
 	"strconv"
-
 	//"strconv"
 	"time"
 )
@@ -107,7 +106,6 @@ func (self *HomeController) Start() {
 			taskName = task.TaskName
 		}
 
-		beego.Debug(fmt.Sprintf("开始执行任务: %d", taskName))
 		row := make(map[string]interface{})
 		row["task_name"] = taskName
 		row["id"] = v.Id
