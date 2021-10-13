@@ -15,6 +15,8 @@ import (
 	"runtime"
 	"sort"
 	"strconv"
+
+	//"strconv"
 	"time"
 )
 
@@ -105,9 +107,11 @@ func (self *HomeController) Start() {
 			taskName = task.TaskName
 		}
 
+		beego.Debug(fmt.Sprintf("开始执行任务: %d", taskName))
 		row := make(map[string]interface{})
 		row["task_name"] = taskName
 		row["id"] = v.Id
+		row["server_name"] = v.ServerName
 		row["start_time"] = beego.Date(time.Unix(v.CreateTime, 0), "Y-m-d H:i:s")
 		row["process_time"] = float64(v.ProcessTime) / 1000
 		row["ouput_size"] = libs.SizeFormat(float64(len(v.Output)))
@@ -121,9 +125,9 @@ func (self *HomeController) Start() {
 	self.Data["jobs"] = jobList
 
 	//折线图
-	okRun := models.SumByDays(30, "0")
-	errRun := models.SumByDays(30, "-1")
-	expiredRun := models.SumByDays(30, "-2")
+	okRun := models.SumByDays(3, "0")
+	errRun := models.SumByDays(3, "-1")
+	expiredRun := models.SumByDays(3, "-2")
 
 	days := []string{}
 	okNum := []int64{}
@@ -171,7 +175,6 @@ func (self *HomeController) Start() {
 	self.Data["okNum"] = okNum
 	self.Data["errNum"] = errNum
 	self.Data["expiredNum"] = expiredNum
-
 	self.Data["cpuNum"] = runtime.NumCPU()
 
 	//系统运行信息
